@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            /* div.navigation > ul.absolute > li {
+                @apply px-5 py-1  w-full nav;
+            }
+            div.navigation > ul.absolute > li > a {
+                @apply w-full block;
+            }
+
+            div.navigation > ul.flex > li {
+                @apply px-5 py-1  nav;
+            } */
+
+            .right, .middle, .left, .footer {
+                @apply px-3 py-3;
+            }
+
+            li.nav {
+                @apply text-slate-700 bg-white hover:bg-slate-200 hover:text-slate-900;
+            }
+            li.nav > a {
+                @apply block px-5 py-1;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+    <!-- #region navigation -->
+    <div class="navigation" x-data="{isNavOpen: false}" @click.outside="isNavOpen = false; console.log('click outside')">
+        <div @click="isNavOpen = !isNavOpen" class="bg-slate-700 text-white px-3 py-1 md:py-0">
+            <svg x-show="!isNavOpen" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                stroke-width="1.5" stroke="currentColor" class="w-6 h-6 cursor-pointer md:hidden">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+            </svg>
+            <svg x-show="isNavOpen" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                stroke-width="1.5" stroke="currentColor" class="w-6 h-6 cursor-pointer md:hidden">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14" />
+            </svg>
+
+        </div>
+        <!-- #region menu -->
+        <ul :class="isNavOpen ? 'visible md:hidden': 'hidden'" class="absolute md:relative md:flex right-0 left-0 grid divide-y shadow">
+            <li class="nav">
+                <a href="javascript:void(0)">Home</a>
+            </li>
+            <li class="nav">
+                <a href="javascript:void(0)">About</a>
+            </li>
+            <li class="nav">
+                <a href="javascript:void(0)">Products</a>
+            </li>
+            <li class="nav">
+                <a href="javascript:void(0)">Services</a>
+            </li>
+            <li class="nav">
+                <a href="javascript:void(0)">Contact</a>
+            </li>
+        </ul>
+
+      
+        
+        <!-- #endregion menu -->
+    </div>
+    <!-- #endregion navigation -->
+    <!-- #region main -->
+    <div class="main bg-slate-100 flex flex-col md:flex-row md:min-h-screen min-w-xs md:flex-wrap">
+        <div class="left bg-yellow-200 order-2 md:order-1 md:w-1/4 md:max-w-xs">
+            left panel
+            <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem consequuntur dolorem doloribus repellendus, sunt laborum perferendis asperiores amet autem nulla magni ullam commodi ex dignissimos quisquam minima qui aliquid esse.</div>
+        </div>
+        <div class="middle bg-cyan-200 md:order-1 flex-1"> 
+            middle panel
+            <div>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, ipsa, provident earum nihil nisi repudiandae recusandae beatae corrupti iure veniam nesciunt sequi ratione voluptate numquam dolorem adipisci commodi eaque quia necessitatibus. Modi porro asperiores accusamus consequatur amet incidunt ipsam, animi recusandae nesciunt, harum quisquam impedit commodi labore velit earum saepe.</div>
+        </div>
+        <div class="right bg-fuchsia-200 order-3 md:w-1/4  md:max-w-xs"> 
+            right panel
+            <div>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugit adipisci tempora atque nisi quis rerum temporibus aut saepe dolorem eum at reprehenderit, labore minima velit quibusdam distinctio, nihil dicta. Nam.</div>
+        </div>
+    </div>
+    <!-- #endregion main -->
+
+    <div class="footer bg-sky-200">
+        footer
+    </div>
+
+    <!-- Alpine Plugins -->
+    <script src="https://cdn.jsdelivr.net/npm/@alpinejs/persist@3.x.x/dist/cdn.min.js" defer></script>
+    <!-- Alpine Core -->
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+
+</body>
+
+</html>
