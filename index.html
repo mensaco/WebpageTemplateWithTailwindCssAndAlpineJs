@@ -8,17 +8,10 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <style type="text/tailwindcss">
         @layer utilities {
-            /* div.navigation > ul.absolute > li {
-                @apply px-5 py-1  w-full nav;
+            body {
+                font-family: Arial, Helvetica, sans-serif;
+                line-height:1.6em;  
             }
-            div.navigation > ul.absolute > li > a {
-                @apply w-full block;
-            }
-
-            div.navigation > ul.flex > li {
-                @apply px-5 py-1  nav;
-            } */
-
             .right, .middle, .left, .footer {
                 @apply px-3 py-3;
             }
@@ -30,13 +23,25 @@
                 @apply block px-5 py-1;
             }
 
-        }
+            .card {
+                @apply grid bg-gradient-to-b from-slate-200 to-slate-100 mb-5 border border-slate-300 shadow-lg shadow-slate-900/60;
+            }
+            .card .title {
+                @apply bg-gradient-to-b from-slate-100 to-slate-300  text-slate-700 px-2 py-[0.15rem] font-semibold border-b border-slate-400;
+            }
+            .card .content {
+                @apply text-justify text-slate-700 px-2 py-2;   
+            }
+             
+
+        } 
     </style>
 </head>
 
 <body>
     <!-- #region navigation -->
-    <div class="navigation" x-data="{isNavOpen: false}" @click.outside="isNavOpen = false; console.log('click outside')">
+    <div class="navigation" x-data="{isNavOpen: false}"
+        @click.outside="isNavOpen = false; console.log('click outside')">
         <div @click="isNavOpen = !isNavOpen" class="bg-slate-700 text-white px-3 py-1 md:py-0">
             <svg x-show="!isNavOpen" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                 stroke-width="1.5" stroke="currentColor" class="w-6 h-6 cursor-pointer md:hidden">
@@ -50,7 +55,8 @@
 
         </div>
         <!-- #region menu -->
-        <ul :class="isNavOpen ? 'visible md:hidden': 'hidden'" class="absolute md:relative md:flex right-0 left-0 grid divide-y shadow">
+        <ul :class="isNavOpen ? 'visible md:hidden': 'hidden'"
+            class="absolute md:relative md:flex right-0 left-0 grid divide-y shadow">
             <li class="nav">
                 <a href="javascript:void(0)">Home</a>
             </li>
@@ -68,24 +74,121 @@
             </li>
         </ul>
 
-      
-        
+
+
         <!-- #endregion menu -->
     </div>
     <!-- #endregion navigation -->
     <!-- #region main -->
-    <div class="main bg-slate-100 flex flex-col md:flex-row md:min-h-screen min-w-xs md:flex-wrap">
-        <div class="left bg-yellow-200 order-2 md:order-1 md:w-1/4 md:max-w-xs">
-            left panel
-            <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem consequuntur dolorem doloribus repellendus, sunt laborum perferendis asperiores amet autem nulla magni ullam commodi ex dignissimos quisquam minima qui aliquid esse.</div>
+    <div class="main bg-slate-700  flex flex-col md:flex-row md:min-h-screen min-w-xs md:flex-wrap">
+        <div class="left order-2 md:order-1 md:w-1/4 md:max-w-xs">
+            <div class="card">
+                <div class="title">Lorem Ipsum</div>
+                <div class="content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed maxime quisquam
+                    pariatur, tempore quod harum? Laudantium voluptatibus porro vitae eveniet, sunt quibusdam error
+                    laborum distinctio magnam iusto eum et quia?</div>
+            </div>
+
+            <div class="card">
+                <div class="title">Lorem Ipsum</div>
+                <div class="content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed maxime quisquam
+                    pariatur, tempore quod harum? Laudantium voluptatibus porro vitae eveniet, sunt quibusdam error
+                    laborum distinctio magnam iusto eum et quia?</div>
+            </div>
+
+            <div class="card">
+                <div class="title">Lorem Ipsum</div>
+                <div class="content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed maxime quisquam
+                    pariatur, tempore quod harum? Laudantium voluptatibus porro vitae eveniet, sunt quibusdam error
+                    laborum distinctio magnam iusto eum et quia?</div>
+            </div>
+
+            <div class="card">
+                <div class="title">Lorem Ipsum</div>
+                <div class="content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed maxime quisquam
+                    pariatur, tempore quod harum? Laudantium voluptatibus porro vitae eveniet, sunt quibusdam error
+                    laborum distinctio magnam iusto eum et quia?</div>
+            </div>
+
+            <div class="card">
+                <div class="title">Lorem Ipsum</div>
+                <div class="content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed maxime quisquam
+                    pariatur, tempore quod harum? Laudantium voluptatibus porro vitae eveniet, sunt quibusdam error
+                    laborum distinctio magnam iusto eum et quia?</div>
+            </div>
+
         </div>
-        <div class="middle bg-cyan-200 md:order-1 flex-1"> 
-            middle panel
-            <div>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, ipsa, provident earum nihil nisi repudiandae recusandae beatae corrupti iure veniam nesciunt sequi ratione voluptate numquam dolorem adipisci commodi eaque quia necessitatibus. Modi porro asperiores accusamus consequatur amet incidunt ipsam, animi recusandae nesciunt, harum quisquam impedit commodi labore velit earum saepe.</div>
+        <div class="middle md:order-1 flex-1">
+            <div class="card">
+                <div class="title">Lorem Ipsum</div>
+                <div class="content">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis, minus? Nam est corrupti asperiores sunt facere. Modi magni quisquam ipsa? Reprehenderit porro aspernatur nesciunt sed recusandae sequi officia, nobis beatae. Fugiat sed maiores excepturi temporibus veritatis? Maiores eaque earum fugit nisi illo impedit aspernatur velit blanditiis est. Nobis necessitatibus corrupti culpa, nihil quaerat maiores totam! Maxime neque rerum corporis atque quam aut praesentium ipsam vero tempora laudantium temporibus dolorem consequuntur, eveniet, sequi dolorum obcaecati illum reprehenderit. Omnis natus quasi perferendis exercitationem ipsam explicabo eius enim, hic tenetur ducimus iusto eum officia voluptatem vitae saepe voluptas. Impedit voluptatibus numquam aperiam fugiat!
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="title">Lorem Ipsum</div>
+                <div class="content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed maxime quisquam
+                    pariatur, tempore quod harum? Laudantium voluptatibus porro vitae eveniet, sunt quibusdam error
+                    laborum distinctio magnam iusto eum et quia?</div>
+            </div>
+
+            <div class="card">
+                <div class="title">Lorem Ipsum</div>
+                <div class="content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed maxime quisquam
+                    pariatur, tempore quod harum? Laudantium voluptatibus porro vitae eveniet, sunt quibusdam error
+                    laborum distinctio magnam iusto eum et quia?</div>
+            </div>
+
+            <div class="card">
+                <div class="title">Lorem Ipsum</div>
+                <div class="content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed maxime quisquam
+                    pariatur, tempore quod harum? Laudantium voluptatibus porro vitae eveniet, sunt quibusdam error
+                    laborum distinctio magnam iusto eum et quia?</div>
+            </div>
+
+            <div class="card">
+                <div class="title">Lorem Ipsum</div>
+                <div class="content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed maxime quisquam
+                    pariatur, tempore quod harum? Laudantium voluptatibus porro vitae eveniet, sunt quibusdam error
+                    laborum distinctio magnam iusto eum et quia?</div>
+            </div>
         </div>
-        <div class="right bg-fuchsia-200 order-3 md:w-1/4  md:max-w-xs"> 
-            right panel
-            <div>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugit adipisci tempora atque nisi quis rerum temporibus aut saepe dolorem eum at reprehenderit, labore minima velit quibusdam distinctio, nihil dicta. Nam.</div>
+        <div class="right order-3 md:w-1/4  md:max-w-xs">
+            <div class="card">
+                <div class="title">Lorem Ipsum</div>
+                <div class="content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed maxime quisquam
+                    pariatur, tempore quod harum? Laudantium voluptatibus porro vitae eveniet, sunt quibusdam error
+                    laborum distinctio magnam iusto eum et quia?</div>
+            </div>
+
+            <div class="card">
+                <div class="title">Lorem Ipsum</div>
+                <div class="content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed maxime quisquam
+                    pariatur, tempore quod harum? Laudantium voluptatibus porro vitae eveniet, sunt quibusdam error
+                    laborum distinctio magnam iusto eum et quia?</div>
+            </div>
+
+            <div class="card">
+                <div class="title">Lorem Ipsum</div>
+                <div class="content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed maxime quisquam
+                    pariatur, tempore quod harum? Laudantium voluptatibus porro vitae eveniet, sunt quibusdam error
+                    laborum distinctio magnam iusto eum et quia?</div>
+            </div>
+
+            <div class="card">
+                <div class="title">Lorem Ipsum</div>
+                <div class="content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed maxime quisquam
+                    pariatur, tempore quod harum? Laudantium voluptatibus porro vitae eveniet, sunt quibusdam error
+                    laborum distinctio magnam iusto eum et quia?</div>
+            </div>
+
+            <div class="card">
+                <div class="title">Lorem Ipsum</div>
+                <div class="content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed maxime quisquam
+                    pariatur, tempore quod harum? Laudantium voluptatibus porro vitae eveniet, sunt quibusdam error
+                    laborum distinctio magnam iusto eum et quia?</div>
+            </div>
         </div>
     </div>
     <!-- #endregion main -->
